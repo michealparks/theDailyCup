@@ -1,0 +1,323 @@
+/* Elements hidden on load */
+#overlay,
+#canvas_div,
+#developer_page,
+#the_developer_button,
+#back,
+#main_page h1 {
+	display: none;
+}
+
+#main_page {
+	display: block;
+}
+
+/* Custom Fonts */
+@font-face {
+	font-family: lucidaBLR;
+	src: url('../fonts/lblr/lucida_blackletter-webfont.eot');
+	src: url('../fonts/lblr/lucida_blackletter-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lblr/lucida_blackletter-webfont.woff') format('woff'),
+	url('../fonts/lblr/lucida_blackletter-webfont.ttf') format('truetype'),
+	url('../fonts/lblr/lucida_blackletter-webfont.svg#lucida_blackletterregular') format('svg');
+}
+
+@font-face {
+	font-family: lastingLove;
+	src: url('fonts/ll/lasting_love-webfont.eot');
+	src: url('fonts/ll/lasting_love-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/ll/lasting_love-webfont.woff') format('woff'),
+	url('fonts/ll/lasting_love-webfont.ttf') format('truetype'),
+	url('fonts/ll/lasting_love-webfont.svg#lasting_loveregular') format('svg');
+}
+
+@font-face {
+	font-family: mavenProLight;
+	src: url('../fonts/mpl/mavenprolight-300-webfont.eot');
+	src: url('../fonts/mpl/mavenprolight-300-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/mpl/mavenprolight-300-webfont.woff') format('woff'),
+	url('../fonts/mpl/mavenprolight-300-webfont.ttf') format('truetype'),
+	url('../fonts/mpl/mavenprolight-300-webfont.svg#maven_pro_light300') format('svg');
+}
+
+/* Front Page */
+html, 
+body {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-family: mavenProLight, serif;
+	background-color: rgba(46, 204, 113, 1.0);
+	width: 100%;
+}
+
+canvas {
+	position: fixed;
+	top: 0;
+	margin: -10px;
+}
+
+img {
+	overflow: hidden;
+	width: 160%;
+}
+
+p {
+	font-size: 50px;
+}
+
+#main_img {
+	width: 200%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+#blog_iframe {
+	z-index: 2000;
+	display: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+	height: 100%;
+	width: 0px;
+	right: 0;
+	top: 0;
+}
+
+#calendar_page #calendar_scroll {
+	width: 100%;
+	border-radius: none;
+}
+
+#date {
+	width: 100%;
+	text-align: center;
+}
+
+nav {
+	z-index: 100;
+	position: absolute;
+	font-size: 30px;
+	color: white;
+	margin: 0;
+	left: 0;
+	top: 0;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+}
+
+nav ul li {
+	font-size: 80px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 50px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+nav ul li:hover {
+	color: black;
+	background-color: #DFF5E3;
+}
+
+.page {
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.page h1 {
+	background: rgba(0, 0, 0, 0.8);
+	font-family: 'Cherry Swash', cursive;
+	color: white;
+	font-size: 50px;
+	padding: 10px;
+}
+
+#about_page h1 {
+	width: 100%;
+	padding: 10px 50px 10px 50px;
+}
+
+.about-pages {
+	z-index: 1000;
+}
+
+.about_pages p {
+	width: 100%;
+	padding: 10px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.right_buttons {
+	width: 100%;
+	text-align: center;
+}
+
+.right_buttons p {
+	background-color: rgba(255,255,255,0.6);
+	width: 100%;
+	padding: 50px 10px;
+	font-size: 40px;
+}
+
+.right_buttons p:hover {
+	background-color: rgba(255,255,255,0.8);
+}
+
+#location_page h1 {
+	font-size: 102px;
+}
+
+#location_page p {
+	z-index: 100;
+	padding: 10px;
+	top: 350px;
+	color: white;
+	background-color: rgba(0,0,0,0.8);
+	left: 70px;
+}
+
+#location_page iframe {
+	margin: 0;
+	width: 100%;
+}
+
+#menu_buttons {
+	z-index: 1000;
+	background-color: rgba(0,0,0,0.5);
+	margin: 0;
+	padding: 8px;
+	border-radius: 7px;
+}
+
+#menu_buttons li {
+	padding: 2px 20px;
+	width: 31%;
+	font-size: 32px;
+	color: black;
+	display: inline;
+	background-color: rgba(255,255,255,0.5);
+}
+
+#menu_buttons li:nth-child(1) {
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+#menu_buttons li:nth-child(3) {
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#menu_buttons li:hover {
+	background-color: rgba(255,255,255,0.8)
+}
+
+#menu_page h1 {
+	font-size: 50px;
+	margin: 100px 0 0 0;
+}
+
+#menu_page h1.first {
+	left: auto;
+	right: 430px;
+}
+
+#menu_page h1.second {
+	right: 50px;
+	left: auto;
+}
+
+#menu_page #food_page h1.second {
+	padding: 10px 19px;
+}
+
+#menu_page p {
+	z-index: 1000;
+	font-size: 20px;
+	margin: 190px 0 0 0;
+	padding: 10px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.8);
+}
+
+#menu_page p.first {
+	right: 430px;
+	width: 400px;
+}
+
+#menu_page p.second {
+	width: 344px;
+	right: 50px;
+}
+
+#menu_page span:nth-child(3n+0) {
+	color: rgb(0, 143, 255);
+}
+
+#menu_page span:nth-child(3n+1) {
+	color: rgb(0, 255, 194);
+}
+
+#menu_page span:nth-child(3n+2) {
+	color: rgb(235, 0, 255);
+}
+
+#contact_page img {
+	z-index: 1000 !important;
+	border: 5px solid rgba(0,0,0,0.6);
+	margin: 20px 0 0 0;
+	width: 600px;
+	height: auto;
+}
+
+#contact_page h1 {
+	z-index: -1;
+	margin: -16px 0 0 0;
+	left: auto;
+}
+
+#contact_page svg {
+	margin: 10px;
+}
+
+#contact_page svg:hover {
+	cursor: pointer;
+	fill: #3B5998;
+}
+
+#contact_page .button {
+	cursor: pointer;
+	font-size: 20px;
+	position: absolute;
+	right: 50px;
+	bottom: 30px;
+	padding: 10px;
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 5px;
+}
+
+#contact_page .button:hover {
+	background-color: rgba(255,255,255,0.8);
+}
+
+#contact_page p {
+	color: white;
+	width: 350px;
+	top: 45px;
+	border: 5px solid rgba(0,0,0,0.8);
+	padding: 10px;
+	left: 5%;
+	position: absolute;
+	background-color: rgba(0,0,0,0.8);
+}
