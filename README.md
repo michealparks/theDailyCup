@@ -1,4 +1,4 @@
-theDailyCup
+The Daily Cup
 ===========
 
-The Daily Cup
+Home site for a local Charleston coffee shop. 
