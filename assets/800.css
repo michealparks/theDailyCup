@@ -57,21 +57,6 @@ canvas {
 	-o-user-select: none;
 }
 
-#overlay img {
-	top: 50%;
-	left: 50%;
-	margin-top: -10em;
-	margin-left: -10em;
-	width: 20em;
-	z-index: 0;
-	position: fixed;
-	height: 20em;
-	width: 20em;
-	border-radius: 20em;
-	border: 5px solid rgba(0,0,0,0.5);
-
-}
-
 #overlay h1 {
 	font-family: 'Abril Fatface', sans-serif;
 	z-index: 1000;
@@ -89,6 +74,14 @@ canvas {
 	width: 600px;
 	margin: 20px;
 	color: white;
+}
+
+#overlay #Layer_1 {
+	margin: 0 0 0 -120px;
+}
+
+#overlay #Layer_2 {
+	margin: 0 0 0 -220px;
 }
 
 #overlay h2 span:hover {
