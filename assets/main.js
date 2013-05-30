@@ -99,45 +99,49 @@ $(document).ready(function()
 
     $blog.click(function()
     {
-        // Move the blog out.
-        if (blogToggle == false)
+        if (!transitioning)
         {
-            if (mobile == false)
+            transitioning = true;
+            setTimeout(function(){transitioning = false;}, 300);
+            // Move the blog out.
+            if (blogToggle == false)
             {
-                $rightButtons
-                    .animate({'left': '437px', 'background-color': 'rgba(0,0,0,0.8'}, 300);
-                $aboutArrow
-                    .fadeOut()
-                    .animate({'left': '418px'});        
-                $blogiframe
-                    .show()
-                    .animate({'width': '700px'}, 300);
-                $blog
-                    .animate({'right': '705px'}, 300)
-                    .html('> Blog');
+                if (mobile == false)
+                {
+                    $rightButtons
+                        .animate({'left': '437px', 'background-color': 'rgba(0,0,0,0.8'}, 300);
+                    $aboutArrow
+                        .fadeOut()
+                        .animate({'left': '418px'});        
+                    $blogiframe
+                        .show()
+                        .animate({'width': '700px'}, 300);
+                    $blog
+                        .animate({'right': '705px'}, 300)
+                        .html('> Blog');
+                }
+                blogToggle = true;
             }
 
-            blogToggle = true;
-        }     
-
-        // Move the blog in.
-        else
-        {
-            if (mobile == false)
+            // Move the blog in.
+            else
             {
-                $rightButtons
-                    .animate({'left': '67%'}, 300);
-                $aboutArrow
-                    .fadeIn()
-                    .animate({'left': '896px'}); 
-                $blogiframe
-                    .animate({'width': '0px'}, 300);
-                $blog
-                    .animate({'right': '10px'}, 300)
-                    .html('< Blog');
+                transitioning = true;
+                setTimeout(function(){transitioning = false;}, 300);
+                if (mobile == false)
+                {
+                    $rightButtons
+                        .animate({'left': '67%'}, 300);
+                    $navArrow
+                        .fadeIn();
+                    $blogiframe
+                        .animate({'width': '0px'}, 300);
+                    $blog
+                        .animate({'right': '10px'}, 300)
+                        .html('< Blog');
+                }
+                blogToggle = false;
             }
-
-            blogToggle = false;
         }
     });
 
@@ -344,43 +348,58 @@ $(document).ready(function()
 
     $('#the_developer_button').click(function()
     {
-        developer_page = true;
+        if (!transitioning)
+        {
+            transitioning = true;
+            setTimeout(function(){transitioning = false;}, 200);
 
-        $('#samantha_img')
-            .add('#facebook')
-            .add('#forsquare')
-            .add('#the_developer_button')
-            .fadeOut(200);
-        $('#developer_img')
-            .add('#github')
-            .add('#contact_page #back')
-            .add('#developer_page')
-            .delay(201)
-            .fadeIn();
+            developer_page = true;
+
+            $('#samantha_img')
+                .add('#facebook')
+                .add('#forsquare')
+                .add('#the_developer_button')
+                .fadeOut(200);
+            $('#developer_img')
+                .add('#github')
+                .add('#contact_page #back')
+                .add('#developer_page')
+                .delay(201)
+                .fadeIn();
+        }
     });
 
     $('#contact_page #back').click(function()
     {
-        if (developer_page)
+        if (!transitioning)
         {
-            $('#developer_img')
-                .add('#github')
-                .add('#developer_page')
-                .add('#back')
-                .fadeOut(200);
+            transitioning = true;
+            setTimeout(function(){transitioning = false;}, 301);
+
+            developer_page = false;
+            owners_page = false;
+
+            if (developer_page)
+            {
+                $('#developer_img')
+                    .add('#github')
+                    .add('#developer_page')
+                    .add('#back')
+                    .fadeOut(200);
+            }
+            else if (owners_page)
+            {
+                $('owners_img')
+                    .add('#owners_page')
+                    .fadeOut(200);
+            }
+            $('#samantha_img')
+                    .add('#facebook')
+                    .add('#forsquare')
+                    .add('#the_developer_button')
+                    .add('#the_owners_button')
+                    .delay(201)
+                    .fadeIn();
         }
-        else if (owners_page)
-        {
-            $('owners_img')
-                .add('#owners_page')
-                .fadeOut(200);
-        }
-        $('#samantha_img')
-                .add('#facebook')
-                .add('#forsquare')
-                .add('#the_developer_button')
-                .add('#the_owners_button')
-                .delay(201)
-                .fadeIn();
     });
 });

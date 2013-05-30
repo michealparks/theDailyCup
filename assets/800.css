@@ -8,6 +8,7 @@ nav,
 #developer_img,
 #contact_page #back,
 #developer_page,
+#owners_page,
 #github {
 	display: none;
 }
@@ -155,7 +156,7 @@ nav ul #blog:hover {
 	background-color: #DFF5E3;
 }
 
-nav ul #blog {
+nav ul .blog {
 	z-index: 10;
 	position: fixed;
 	float: right;
@@ -398,7 +399,7 @@ nav ul #blog {
 
 #contact_page svg:hover {
 	cursor: pointer;
-	fill: #3B5998;
+	fill: rgba(255,255,255,0.8);
 }
 
 #contact_page .button {
