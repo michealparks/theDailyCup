@@ -5,8 +5,7 @@ nav,
 .page,
 .about_pages,
 .menu_pages,
-#developer_img,
-#contact_page #back,
+.outer,
 #developer_page,
 #owners_page,
 #github {
@@ -116,6 +115,7 @@ canvas {
 	top: 50px;
 	left: 955px;
 	right: 30px;
+	background-color: rgba(0,0,0,0);
 }
 
 #calendar_page #calendar_block {
@@ -168,8 +168,8 @@ nav ul .blog {
 	position: fixed;
 	top: 100px;
 	left: 0;
+	bottom: 60px;
 	width: 100%;
-	height: 550px;
 	background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -391,38 +391,62 @@ nav ul .blog {
 	margin: -16px 0 0 0;
 	left: auto;
 	position: relative;
+
+	transition: 0.4s;
+	-webkit-transition: 0.4s;
+}
+
+#mail_blurb {
+	font-weight: bold;
+	font-size: 20px;
+	position: absolute;
+	margin: -40px 0 0 -150px;
+	width: 300px;
+	padding: 30px 0;
+	left: 50%;
+	background-color: white;
+	border-radius: 30px;
+
+	user-select: text;
+	-moz-user-select: text; 
+	-khtml-user-select: text; 
+	-webkit-user-select: text; 
+	-o-user-select: text;
 }
 
 #contact_page svg {
 	margin: 10px;
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
 }
 
 #contact_page svg:hover {
 	cursor: pointer;
-	fill: rgba(255,255,255,0.8);
+	fill: rgba(255,255,255,0.9);
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
 }
 
-#contact_page .button {
+.outer {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+}
+
+.outer .button {
+	display: inline;
 	cursor: pointer;
 	font-size: 20px;
-	position: absolute;
-	right: 40px;
-	bottom: 20px;
 	padding: 10px;
 	background-color: rgba(255,255,255,0.5);
 	border-radius: 5px;
 }
 
-#contact_page .button:hover {
+.outer .button:hover {
 	background-color: rgba(255,255,255,0.8);
 }
 
-#contact_page #the_owner_button {
-	left: 40px;
-	right: auto;
-}
-
-#contact_page p {
+#contact_page .description {
 	color: white;
 	width: 350px;
 	top: 45px;

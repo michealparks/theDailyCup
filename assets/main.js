@@ -1,15 +1,16 @@
 "use strict";
 
 // Global bools are cool!
-var blogToggle = false; 
-var transitioning = false;
-var developer_page = false;
-var owners_page = false;
-var mobile = false;
+var blogToggle = false,
+    transitioning = false, 
+    developerPage = false, 
+    ownersPage = false,
+    mobile = false,
 
-var date = new Date();
-var month, monthNum = date.getMonth();
-var year = date.getFullYear();
+    date = new Date(),
+    month = null, 
+    monthNum = date.getMonth(),
+    year = date.getFullYear();
 
 if (monthNum === 0) month = "January";
 else if (monthNum == 1) month = "February";
@@ -28,53 +29,70 @@ $(document).ready(function()
 {
     mobile = (screen.width <= 480);
 
-    // Navigation Bar.
-    var $nav = $('nav');
-    var $about = $('.about');
-    var $calendar = $('.calendar');
-    var $locations = $('.locations');
-    var $menu = $('.menu');
-    var $contact = $('.contact');
-    var $blog = $('.blog');
-    var $navArrow = $('#nav_arrow');
+        // Navigation Bar.
+    var $nav = $('nav'),
+        $about = $('.about'),
+        $calendar = $('.calendar'),
+        $locations = $('.locations'),
+        $menu = $('.menu'),
+        $contact = $('.contact'),
+        $blog = $('.blog'),
+        $navArrow = $('#nav_arrow'),
 
-    // Main Pages.
-    var $aboutPage = $('#about_page');
-    var $calendarPage = $('#calendar_page');
-    var $locatationPage = $('#location_page');
-    var $menuPage = $('#menu_page');
-    var $contactPage = $('#contact_page');
+        // Main Pages.
+        $aboutPage = $('#about_page'),
+        $calendarPage = $('#calendar_page'),
+        $locatationPage = $('#location_page'),
+        $menuPage = $('#menu_page'),
+        $contactPage = $('#contact_page'),
 
-    // About Page Navigation.
-    var $rightButtons = $('.right_buttons');
-    var $ourCoffee = $('#our_coffee');
-    var $ourFood = $('#our_food');
-    var $ourAtmosphere = $('#our_atmosphere');
-    var $ourBuilding = $('#our_building');
-    var $aboutArrow = $('#about_arrow');
+        // About Page Navigation.
+        $rightButtons = $('.right_buttons'),
+        $ourCoffee = $('#our_coffee'),
+        $ourFood = $('#our_food'),
+        $ourAtmosphere = $('#our_atmosphere'),
+        $ourBuilding = $('#our_building'),
 
-    // About Pages.
-    var $aboutPages = $('.about_pages');
-    var $ourCoffeePage = $('#our_coffee_page');
-    var $ourFoodPage = $('#our_food_page');
-    var $ourAtmospherePage = $('#our_atmosphere_page');
-    var $ourBuildingPage = $('#our_building_page');
+        // About Pages.
+        $aboutPages = $('.about_pages'),
+        $ourCoffeePage = $('#our_coffee_page'),
+        $ourFoodPage = $('#our_food_page'),
+        $ourAtmospherePage = $('#our_atmosphere_page'),
+        $ourBuildingPage = $('#our_building_page'),
 
-    // Menu Page.
-    var $foodButton = $("#food_button");
-    var $beverageButton = $('#beverage_button');
-    var $otherButton = $('#other_button');
-    var $mainMenuImg = $('#main_menu_img')
-    var $foodPage = $("#food_page");
-    var $beveragePage = $("#beverage_page");
-    var $otherPage = $("#other_page");
+        // Menu Page.
+        $foodButton = $("#food_button"),
+        $beverageButton = $('#beverage_button'),
+        $otherButton = $('#other_button'),
+        $mainMenuImg = $('#main_menu_img'),
+        $foodPage = $("#food_page"),
+        $beveragePage = $("#beverage_page"),
+        $otherPage = $("#other_page"),
 
-    // Img.
-    var $mainImg = $('#main_img');
+        // Contact Page.
+        $outer = $('.outer'),
+        $ownersButton = $('#the_owners_button'),
+        $developerButton = $('#the_developer_button'),
+        $outerBack = $('.outer #back'),
 
-    var $canvasDiv = $('#canvas_div');
-    var $overlay = $('#overlay');
-    var $blogiframe = $('#blog_iframe');
+        $samanthaImg = $('#samantha_img'),
+        $ownersPage = $('#owners_page'),
+        $ownersImg = $('#owners_img'),
+        $developerPage = $('#developer_page'),
+        $developerImg = $('#developer_img'),
+
+        $facebook = $('#facebook'),
+        $forsquare = $('#forsquare'),
+        $github = $('#github'),
+        $mail = $('#mail'),
+        $mailBlurb = $('#mail_blurb'),
+
+        // Img.
+        $mainImg = $('#main_img'),
+
+        $canvasDiv = $('#canvas_div'),
+        $overlay = $('#overlay'),
+        $blogiframe = $('#blog_iframe');
 
     $('#date').html(month + ' ' + year);
 
@@ -109,10 +127,7 @@ $(document).ready(function()
                 if (mobile == false)
                 {
                     $rightButtons
-                        .animate({'left': '437px', 'background-color': 'rgba(0,0,0,0.8'}, 300);
-                    $aboutArrow
-                        .fadeOut()
-                        .animate({'left': '418px'});        
+                        .animate({'left': '437px', 'background-color': 'rgba(0,0,0,0.8'}, 300);      
                     $blogiframe
                         .show()
                         .animate({'width': '700px'}, 300);
@@ -135,7 +150,9 @@ $(document).ready(function()
                     $navArrow
                         .fadeIn();
                     $blogiframe
-                        .animate({'width': '0px'}, 300);
+                        .animate({'width': '0px'}, 300, function(){
+                            $blogiframe.css({'display': 'none'});
+                        });
                     $blog
                         .animate({'right': '10px'}, 300)
                         .html('< Blog');
@@ -158,6 +175,7 @@ $(document).ready(function()
             .add($locatationPage)
             .add($menuPage)
             .add($contactPage)
+            .add($outer)
             .fadeOut();
         $aboutPage.fadeIn();   
     });
@@ -173,6 +191,7 @@ $(document).ready(function()
             .add($locatationPage)
             .add($menuPage)
             .add($contactPage)
+            .add($outer)
             .fadeOut();
         $calendarPage.fadeIn();
     }); 
@@ -188,6 +207,7 @@ $(document).ready(function()
             .add($calendarPage)
             .add($menuPage)
             .add($contactPage)
+            .add($outer)
             .fadeOut();
         $locatationPage.fadeIn()
     });
@@ -203,6 +223,7 @@ $(document).ready(function()
             .add($calendarPage)
             .add($locatationPage)
             .add($contactPage)
+            .add($outer)
             .fadeOut();
         $menuPage.fadeIn()
     });
@@ -219,7 +240,12 @@ $(document).ready(function()
             .add($locatationPage)
             .add($menuPage)
             .fadeOut();
-        $contactPage.fadeIn()
+        $outerBack.fadeOut(1);
+        $contactPage
+            .add($outer)
+            .fadeIn()
+        if (ownersPage || developerPage) $outerBack.fadeIn();
+        $('#mail_blurb').css({'display': 'none', 'margin': '-40px 0 0 -150px'});
     });
 
     /*****************
@@ -229,12 +255,10 @@ $(document).ready(function()
     {
         if (mobile == false)
         {
-            $('.about_img').css({'z-index': '1'});
-            $('.right_buttons').css({'top': '382px'});
-            $('#about_page h1').animate({'font-size': '32px'});
-            $aboutArrow
-                .css({'display': 'inline-block'})
-                .animate({'margin-bottom': '-56px'});
+            $('#about_page h1').animate({
+                'font-size': '32px',
+                'margin-top': '55px'
+            });
         }
 
         $mainImg.add($ourFoodPage).add($ourAtmospherePage).add($ourBuildingPage)
@@ -247,11 +271,10 @@ $(document).ready(function()
     {
         if (mobile == false)
         {
-            $('#about_page h1')
-                .animate({'font-size': '32px'});
-            $aboutArrow
-                .css({'display': 'inline-block'})
-                .animate({'margin-bottom': '-109px'});
+            $('#about_page h1').animate({
+                'font-size': '32px',
+                'margin-top': '55px'
+            });
         }
 
         $mainImg
@@ -266,11 +289,10 @@ $(document).ready(function()
     {
         if (mobile == false)
         {
-            $('#about_page h1')
-                .animate({'font-size': '32px'});
-            $aboutArrow
-                .css({'display': 'inline-block'})
-                .animate({'margin-bottom': '-161px'});
+            $('#about_page h1').animate({
+                'font-size': '32px',
+                'margin-top': '55px'
+            });
         }
 
         $mainImg
@@ -285,11 +307,10 @@ $(document).ready(function()
     {
         if (mobile == false)
         {
-            $('#about_page h1')
-                .animate({'font-size': '32px'});
-            $aboutArrow
-                .css({'display': 'inline-block'})
-                .animate({'margin-bottom': '-213px'});
+            $('#about_page h1').animate({
+                'font-size': '32px', 
+                'margin-top': '55px'
+            });
         }
 
         $mainImg
@@ -318,7 +339,7 @@ $(document).ready(function()
             .fadeOut();
     });
 
-    $otherPage.click(function()
+    $otherButton.click(function()
     {
         $beveragePage
             .add($foodPage)
@@ -329,77 +350,139 @@ $(document).ready(function()
             .fadeIn();
         
     });
-
-    $('#the_owners_button').click(function()
+ 
+    $ownersButton.click(function()
     {
-        owners_page = true;
-
-        $('#samantha_img')
-            .add("#facebook")
-            .add('#forsquare')
-            .add('#the_developer_button')
-            .fadeOut(200);
-        $('#owners_img')
-            .add('#contact_page #back')
-            .add('owners_page')
-            .delay(201)
-            .fadeIn();
-    });
-
-    $('#the_developer_button').click(function()
-    {
-        if (!transitioning)
+         if (!transitioning)
         {
             transitioning = true;
-            setTimeout(function(){transitioning = false;}, 200);
+            setTimeout(function(){transitioning = false;}, 201);
 
-            developer_page = true;
+            ownersPage = true;
 
-            $('#samantha_img')
-                .add('#facebook')
-                .add('#forsquare')
-                .add('#the_developer_button')
+            $mail.fadeOut(200);
+            $mailBlurb
+                .animate({'margin': '-40px 0 0 -150px', 'opacity': 0}, 300, function(){
+                    $mailBlurb.css({'display': 'none'});
+                });
+
+            if (developerPage)
+            {
+                $developerImg
+                    .add($github)
+                    .add($developerPage)
+                    .fadeOut(200);
+
+                    setTimeout(function(){$developerButton.fadeIn();}, 205);
+            }
+
+            $samanthaImg
+                .add($facebook)
+                .add($forsquare)
+                .add($ownersButton)
                 .fadeOut(200);
-            $('#developer_img')
-                .add('#github')
-                .add('#contact_page #back')
-                .add('#developer_page')
+            $ownersImg
+                .add($outerBack)
+                .add($ownersPage)
                 .delay(201)
                 .fadeIn();
         }
     });
 
-    $('#contact_page #back').click(function()
+    $developerButton.click(function()
     {
         if (!transitioning)
         {
             transitioning = true;
-            setTimeout(function(){transitioning = false;}, 301);
+            setTimeout(function(){transitioning = false;}, 201);
 
-            developer_page = false;
-            owners_page = false;
+            developerPage = true;
 
-            if (developer_page)
+            $mailBlurb
+                .animate({'margin': '-40px 0 0 -150px', 'opacity': 0}, 300, function(){
+                    $mailBlurb.css({'display': 'none'});
+                });
+
+            if (ownersPage)
             {
-                $('#developer_img')
-                    .add('#github')
-                    .add('#developer_page')
-                    .add('#back')
+                $ownersImg
+                    .add($ownersPage)
+                    .fadeOut(200);
+                    $mail.fadeIn(200);
+
+                    setTimeout(function(){$ownersButton.fadeIn();}, 205);
+            }
+
+            $samanthaImg
+                .add($facebook)
+                .add($forsquare)
+                .add($developerButton)
+                .fadeOut(200);
+            $developerImg
+                .add($github)
+                .add($outerBack)
+                .add($developerPage)
+                .delay(201)
+                .fadeIn(200);
+        }
+    });
+
+    $outerBack.click(function()
+    {
+        if (!transitioning)
+        {
+            transitioning = true;
+            setTimeout(function(){transitioning = false;}, 201);
+
+            $mailBlurb
+                .animate({'margin': '-40px 0 0 -150px', 'opacity': 0}, 300, function(){
+                    $mailBlurb.css({'display': 'none'});
+                });
+
+            if (developerPage)
+            {
+                $developerImg
+                    .add($github)
+                    .add($developerPage)
+                    .add($outerBack)
+                    .fadeOut(200);
+                $mail.fadeIn(200);
+            }
+            
+            if (ownersPage)
+            {
+                $ownersImg
+                    .add($ownersPage)
+                    .add($outerBack)
                     .fadeOut(200);
             }
-            else if (owners_page)
-            {
-                $('owners_img')
-                    .add('#owners_page')
-                    .fadeOut(200);
-            }
-            $('#samantha_img')
-                    .add('#facebook')
-                    .add('#forsquare')
-                    .add('#the_developer_button')
-                    .add('#the_owners_button')
+            $samanthaImg
+                    .add($facebook)
+                    .add($forsquare)
+                    .add($developerButton)
+                    .add($ownersButton)
+                    .add($mail)
                     .delay(201)
                     .fadeIn();
         }
+
+        developerPage = false;
+        ownersPage = false;
+    });
+
+    $mail.click(function(){
+        if ($mailBlurb.css('display') == 'none')
+        {
+            $mailBlurb
+                .html(developerPage? 'michealparks1989@gmail.com': 'theDailyCupWV@gmail.com')
+                .css({'opacity': 0, 'display': 'block'})
+                .animate({'margin': '-75px 0 0 -150px', 'opacity': 1}, 300);
+        }
+        else
+            $mailBlurb
+                .animate({'margin': '-40px 0 0 -150px', 'opacity': 0}, 300, function(){
+                    $mailBlurb.css({'display': 'none'});
+                });
+
     });
 });
