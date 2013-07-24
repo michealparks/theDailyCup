@@ -2,8 +2,8 @@
 
 // Global bools are cool!
 var blogToggle = false,
-    transitioning = false, 
-    developerPage = false, 
+    transitioning = false,
+    developerPage = false,
     ownersPage = false,
     mobile = false,
 
@@ -25,8 +25,7 @@ else if (monthNum == 9) month = "October";
 else if (monthNum == 10) month = "November";
 else if (monthNum == 11) month = "December";
 
-$(document).ready(function()
-{
+$(document).ready(function(){
     mobile = (screen.width <= 480);
 
         // Navigation Bar.
@@ -97,8 +96,7 @@ $(document).ready(function()
     $('#date').html(month + ' ' + year);
 
     // Document click event to remove welcome processing animation.
-    $('#overlay h2 span').click(function()
-    {
+    $('#overlay h2 span').click(function(){
         $('body').css({
             'background-color': 'rgba(52, 73, 94,1.0)'
         });
@@ -107,27 +105,23 @@ $(document).ready(function()
             .hide()
             .delay(75)
             .fadeIn();  
-        $nav.slideDown(300);  
-        
+        $nav.slideDown(300);
+
         if (!$(this).is('.blog'))
             $navArrow.fadeIn();
 
-        $(this).off('click');    
-    }); 
+        $(this).off('click');
+    });
 
-    $blog.click(function()
-    {
-        if (!transitioning)
-        {
+    $blog.click(function(){
+        if (!transitioning){
             transitioning = true;
             setTimeout(function(){transitioning = false;}, 300);
             // Move the blog out.
-            if (blogToggle == false)
-            {
-                if (mobile == false)
-                {
+            if (blogToggle == false){
+                if (mobile == false){
                     $rightButtons
-                        .animate({'left': '437px', 'background-color': 'rgba(0,0,0,0.8'}, 300);      
+                        .animate({'left': '437px', 'background-color': 'rgba(0,0,0,0.8'}, 300);   
                     $blogiframe
                         .show()
                         .animate({'width': '700px'}, 300);
@@ -139,12 +133,10 @@ $(document).ready(function()
             }
 
             // Move the blog in.
-            else
-            {
+            else{
                 transitioning = true;
                 setTimeout(function(){transitioning = false;}, 300);
-                if (mobile == false)
-                {
+                if (mobile == false){
                     $rightButtons
                         .animate({'left': '67%'}, 300);
                     $navArrow
@@ -165,8 +157,7 @@ $(document).ready(function()
     /****************
     Click events to change main pages and move arrow below top nav bar.
     *****************/
-    $about.click(function()
-    {
+    $about.click(function(){
         if (blogToggle)
             $blog.trigger('click');
         $navArrow
@@ -177,11 +168,10 @@ $(document).ready(function()
             .add($contactPage)
             .add($outer)
             .fadeOut();
-        $aboutPage.fadeIn();   
+        $aboutPage.fadeIn(); 
     });
 
-    $calendar.click(function()
-    {
+    $calendar.click(function(){
         if (blogToggle)
             $blog.trigger('click');
         $navArrow.animate({
@@ -196,8 +186,7 @@ $(document).ready(function()
         $calendarPage.fadeIn();
     }); 
 
-    $locations.click(function()
-    {
+    $locations.click(function(){
         if (blogToggle)
             $blog.trigger('click');
         $navArrow.animate({
@@ -209,11 +198,10 @@ $(document).ready(function()
             .add($contactPage)
             .add($outer)
             .fadeOut();
-        $locatationPage.fadeIn()
+        $locatationPage.fadeIn();
     });
 
-    $menu.click(function()
-    {
+    $menu.click(function(){
         if (blogToggle)
             $blog.trigger('click');
         $navArrow.animate({
@@ -225,11 +213,10 @@ $(document).ready(function()
             .add($contactPage)
             .add($outer)
             .fadeOut();
-        $menuPage.fadeIn()
+        $menuPage.fadeIn();
     });
 
-    $contact.click(function()
-    {
+    $contact.click(function(){
         if (blogToggle)
             $blog.trigger('click');
         $navArrow.animate({
@@ -243,7 +230,7 @@ $(document).ready(function()
         $outerBack.fadeOut(1);
         $contactPage
             .add($outer)
-            .fadeIn()
+            .fadeIn();
         if (ownersPage || developerPage) $outerBack.fadeIn();
         $('#mail_blurb').css({'display': 'none', 'margin': '-40px 0 0 -150px'});
     });
@@ -251,10 +238,8 @@ $(document).ready(function()
     /*****************
     Click events to show and hide about pages. 
     ******************/
-    $ourCoffee.click(function()
-    {
-        if (mobile == false)
-        {
+    $ourCoffee.click(function(){
+        if (mobile === false){
             $('#about_page h1').animate({
                 'font-size': '32px',
                 'margin-top': '55px'
@@ -262,15 +247,13 @@ $(document).ready(function()
         }
 
         $mainImg.add($ourFoodPage).add($ourAtmospherePage).add($ourBuildingPage)
-            .fadeOut();    
+            .fadeOut();
         $ourCoffeePage
-            .fadeIn();        
-    });    
+            .fadeIn();
+    });
 
-    $ourFood.click(function()
-    {
-        if (mobile == false)
-        {
+    $ourFood.click(function(){
+        if (mobile === false){
             $('#about_page h1').animate({
                 'font-size': '32px',
                 'margin-top': '55px'
@@ -282,13 +265,11 @@ $(document).ready(function()
             .add($ourAtmospherePage)
             .add($ourBuildingPage)
             .fadeOut();
-        $ourFoodPage.fadeIn();        
+        $ourFoodPage.fadeIn();
     });
 
-    $ourAtmosphere.click(function()
-    {
-        if (mobile == false)
-        {
+    $ourAtmosphere.click(function(){
+        if (mobile === false){
             $('#about_page h1').animate({
                 'font-size': '32px',
                 'margin-top': '55px'
@@ -303,12 +284,10 @@ $(document).ready(function()
         $ourAtmospherePage.fadeIn();    
     });    
 
-    $ourBuilding.click(function()
-    {
-        if (mobile == false)
-        {
+    $ourBuilding.click(function(){
+        if (mobile == false){
             $('#about_page h1').animate({
-                'font-size': '32px', 
+                'font-size': '32px',
                 'margin-top': '55px'
             });
         }
@@ -318,11 +297,10 @@ $(document).ready(function()
             .add($ourFoodPage)
             .add($ourAtmospherePage)
             .fadeOut();
-        $ourBuildingPage.fadeIn();        
-    });    
+        $ourBuildingPage.fadeIn();
+    });
 
-    $foodButton.click(function()
-    {
+    $foodButton.click(function(){
         $foodPage.fadeIn();
         $beveragePage
             .add($otherPage)
@@ -330,8 +308,7 @@ $(document).ready(function()
             .fadeOut();
     });
 
-    $beverageButton.click(function()
-    {
+    $beverageButton.click(function(){
         $beveragePage.fadeIn();
         $foodPage
             .add($otherPage)
@@ -339,22 +316,18 @@ $(document).ready(function()
             .fadeOut();
     });
 
-    $otherButton.click(function()
-    {
+    $otherButton.click(function(){
         $beveragePage
             .add($foodPage)
             .add($mainMenuImg)
             .fadeOut();
         $otherPage
             .css({'z-index': 1000})
-            .fadeIn();
-        
+            .fadeIn();     
     });
- 
-    $ownersButton.click(function()
-    {
-         if (!transitioning)
-        {
+
+    $ownersButton.click(function(){
+         if (!transitioning){
             transitioning = true;
             setTimeout(function(){transitioning = false;}, 201);
 
@@ -366,8 +339,7 @@ $(document).ready(function()
                     $mailBlurb.css({'display': 'none'});
                 });
 
-            if (developerPage)
-            {
+            if (developerPage){
                 $developerImg
                     .add($github)
                     .add($developerPage)
@@ -389,10 +361,8 @@ $(document).ready(function()
         }
     });
 
-    $developerButton.click(function()
-    {
-        if (!transitioning)
-        {
+    $developerButton.click(function(){
+        if (!transitioning){
             transitioning = true;
             setTimeout(function(){transitioning = false;}, 201);
 
@@ -403,8 +373,7 @@ $(document).ready(function()
                     $mailBlurb.css({'display': 'none'});
                 });
 
-            if (ownersPage)
-            {
+            if (ownersPage){
                 $ownersImg
                     .add($ownersPage)
                     .fadeOut(200);
@@ -427,10 +396,8 @@ $(document).ready(function()
         }
     });
 
-    $outerBack.click(function()
-    {
-        if (!transitioning)
-        {
+    $outerBack.click(function(){
+        if (!transitioning){
             transitioning = true;
             setTimeout(function(){transitioning = false;}, 201);
 
@@ -439,8 +406,7 @@ $(document).ready(function()
                     $mailBlurb.css({'display': 'none'});
                 });
 
-            if (developerPage)
-            {
+            if (developerPage){
                 $developerImg
                     .add($github)
                     .add($developerPage)
@@ -448,9 +414,8 @@ $(document).ready(function()
                     .fadeOut(200);
                 $mail.fadeIn(200);
             }
-            
-            if (ownersPage)
-            {
+
+            if (ownersPage){
                 $ownersImg
                     .add($ownersPage)
                     .add($outerBack)
@@ -471,8 +436,7 @@ $(document).ready(function()
     });
 
     $mail.click(function(){
-        if ($mailBlurb.css('display') == 'none')
-        {
+        if ($mailBlurb.css('display') == 'none'){
             $mailBlurb
                 .html(developerPage? 'michealparks1989@gmail.com': 'theDailyCupWV@gmail.com')
                 .css({'opacity': 0, 'display': 'block'})
